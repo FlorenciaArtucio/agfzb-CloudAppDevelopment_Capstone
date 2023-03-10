@@ -1,6 +1,7 @@
 import requests
+import os
 import json
-from .models import CarDealer, CarMake, CarModel, DealerReview
+from .models import CarDealer, DealerReview
 from requests.auth import HTTPBasicAuth
 
 
