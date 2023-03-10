@@ -102,7 +102,7 @@ def get_dealer_details(request, dealer_id):
         url = "https://us-south.functions.appdomain.cloud/api/v1/web/9ba477d3-3063-4ffb-a237-36d5ed7a09c8/dealership-package/get-review"
         reviews = get_dealer_reviews_from_cf(url, dealer_id)
         context["reviews"] = reviews
-        dealer = get_dealer_from_cf_by_id("https://us-south.functions.appdomain.cloud/api/v1/web/9ba477d3-3063-4ffb-a237-36d5ed7a09c8/dealership-package/get-dealership", dealer_id)
+        dealer = get_dealer_from_cf_by_id("https://us-south.functions.appdomain.cloud/api/v1/web/28d81ac3-8487-4067-8231-1c8ff7125186/dealership-package/get-dealership", dealer_id)
         context["dealer"] = dealer
         return render(request, 'djangoapp/dealer_details.html', context)
 
