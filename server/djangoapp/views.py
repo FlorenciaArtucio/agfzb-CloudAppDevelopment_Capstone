@@ -90,7 +90,7 @@ def registration_request(request):
 def get_dealerships(request):
     if request.method == "GET":
         url = "https://us-south.functions.appdomain.cloud/api/v1/web/28d81ac3-8487-4067-8231-1c8ff7125186/dealership-package/get-dealership"
-        dealerships = get_dealers_from_cf(url)
+        dealerships = get_dealer_from_cf(url)
         context = {}
         context["dealership_list"] = dealerships
         return render(request, 'djangoapp/index.html', context)
@@ -109,14 +109,13 @@ def get_dealerships(request):
 
 def get_dealer_details(request, id):
     if request.method == "GET":
-        context = {}
         dealer_url = "https://us-south.functions.appdomain.cloud/api/v1/web/28d81ac3-8487-4067-8231-1c8ff7125186/dealership-package/get-dealership"
         dealer = get_dealer_by_id_from_cf(dealer_url, id)
+        context = {}
         context["dealer"] = dealer
     
         review_url = "https://us-south.functions.appdomain.cloud/api/v1/web/9ba477d3-3063-4ffb-a237-36d5ed7a09c8/dealership-package/get-review"
         reviews = get_dealer_reviews_from_cf(review_url, id)
-        print(reviews)
         context["reviews"] = reviews
         
         return render(request, 'djangoapp/dealer_details.html', context)
